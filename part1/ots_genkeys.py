@@ -3,7 +3,7 @@ import os, hashlib
 def chain_hash(data, w):
     """Applies the SHA-256 hash function to the input data w times."""
     for i in range(w):
-        data = hashlib.sha256(data).digest()
+        data = hashlib.sha3_256(data).digest()
     return data
 
 def generate_private_key():
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     sk = generate_private_key()
     
     # Save the private keys to a file in binary format
-    with open("part1/private_key.ots", "wb") as f:
+    with open("private_key.ots", "wb") as f:
         for key in sk:
             f.write(key)
     
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         pk.append(chain_hash(key, 16))
         
     # Save the public keys to a file in binary format
-    with open("part1/public_key.ots", "wb") as f:
+    with open("public_key.ots", "wb") as f:
         for key in pk:
             f.write(key)
 
