@@ -15,8 +15,7 @@ def generate_private_key():
         secret_keys.append(seed)
     return secret_keys
         
-
-if __name__ == "__main__":
+def main():
     # Generate 64 random 32-byte secret keys
     sk = generate_private_key()
     
@@ -34,4 +33,7 @@ if __name__ == "__main__":
     with open("public_key.ots", "wb") as f:
         for key in pk:
             f.write(key)
+
+if __name__ == "__main__":
+    main()
 
