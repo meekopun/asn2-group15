@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os, hashlib
 
 def chain_hash(data, w):
